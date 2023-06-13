@@ -1,6 +1,6 @@
 # TFM
 
-En este repositorio está todo el código usado en el Trabajo de Fin de Máster "Predicción de las Curvas de Oferta de Electricidad del Mercado Diario". 
+En este repositorio está todo el código usado en el Trabajo de Fin de Máster "Predicción de las Curvas de Oferta de Electricidad del Mercado Diario". Los datos usados están disponibles en este [enlace](https://www.omie.es/es/file-access-list).
 
 - ***lstm.py*** y ***lstm_hidden.py*** son las arquitecturas de las redes LSTM y LSTM con *hidden state*.
 - ***utils.py*** contiene algunas funciones útiles, como el preprocesado de los datos, calcular la integral del valor absoluto de la resta de dos funciones escalonadas y visualizar las predicciones de los modelos.
