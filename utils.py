@@ -2,17 +2,16 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import torch
-from typing import List, Any
 from matplotlib.patches import Patch
 
 
 
 def preprocess(
-        df: pd.DataFrame,
-        hour: int,
-        hours_before: int,
-        valid: bool
-    ) -> List[torch.tensor]:
+    df: pd.DataFrame,
+    hour: int,
+    hours_before: int,
+    valid: bool
+) -> list[torch.tensor]:
 
     """
     Preprocesa los datos del csv.
@@ -154,11 +153,11 @@ def preprocess(
 
 
 def calculate_integral(
-        real_curve_price: List[float],
-        real_curve_supply: List[float],
-        approx_curve_price: List[float],
-        approx_curve_supply: List[float]
-    ) -> float:
+    real_curve_price: list[float],
+    real_curve_supply: list[float],
+    approx_curve_price: list[float],
+    approx_curve_supply: list[float]
+) -> float:
     
     """
     Calcula la integral de las curvas escalonadas.
@@ -195,7 +194,6 @@ def calculate_integral(
             i_approx += 1
         prices_seen.append(price)
     
-    
     # Para guardar ofertas reales y aproximadas
     s_real = []
     s_approx = []
@@ -229,15 +227,15 @@ def calculate_integral(
 
 
 def view_pred(
-        xx: np.array,
-        Y_test: np.array,
-        Y_prev: np.array,
-        Y_pred_RF: np.array,
-        Y_pred_LSTM: np.array,
-        Y_pred_LSTM_hidden: np.array,
-        cmap: Any,
-        idx: Any = None
-    ) -> None:
+    xx: np.array,
+    Y_test: np.array,
+    Y_prev: np.array,
+    Y_pred_RF: np.array,
+    Y_pred_LSTM: np.array,
+    Y_pred_LSTM_hidden: np.array,
+    cmap: plt.colors.LinearSegmentedColormap,
+    idx: int = None
+) -> None:
     
     """
     Dibuja las predicciones de un dia aleatorio del test.
@@ -284,3 +282,4 @@ def view_pred(
     ax.set_ylabel('Oferta (kWh)')
     ax.set_title('Prediccion de un dia aleatorio del test')
     ax.legend(handles=legend_elements)
+    

@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import torch
 from torch import nn, optim
-from typing import List, Any
+from typing import Any
 from sklearn.metrics import (
     mean_squared_error,
     mean_absolute_error,
@@ -28,10 +28,10 @@ class EarlyStoppingHidden:
 
 
     def __init__(
-            self,
-            patience: int,
-            path: str
-        ) -> None:
+        self,
+        patience: int,
+        path: str
+    ) -> None:
         
         """
         Constructor de la clase.
@@ -50,10 +50,10 @@ class EarlyStoppingHidden:
 
 
     def __call__(
-            self,
-            val_loss: float,
-            model: Any
-        ) -> None:
+        self,
+        val_loss: float,
+        model: Any
+    ) -> None:
         
         """
         Guarda los pesos del modelo y actualiza el mejor valor y contador si
@@ -78,10 +78,10 @@ class EarlyStoppingHidden:
 
 
     def save_checkpoint(
-            self,
-            val_loss: float,
-            model: Any
-        ) -> None:
+        self,
+        val_loss: float,
+        model: Any
+    ) -> None:
         
         """
         Guarda el modelo y actualiza el mejor valor de la funcion de perdida.
@@ -104,16 +104,16 @@ class LSTM_hidden(nn.Module):
 
     
     def __init__(
-            self,
-            input_size: int,
-            hidden_size: int,
-            hidden_1: int,
-            hidden_2: int,
-            hidden_3: int,
-            hidden_4: int,
-            n_labels: int,
-            p: float
-        ) -> None:
+        self,
+        input_size: int,
+        hidden_size: int,
+        hidden_1: int,
+        hidden_2: int,
+        hidden_3: int,
+        hidden_4: int,
+        n_labels: int,
+        p: float
+    ) -> None:
         
         """
         Constructor de la clase.
@@ -143,9 +143,9 @@ class LSTM_hidden(nn.Module):
                                                                 
         
     def forward(
-            self,
-            x: torch.tensor
-        ) -> torch.tensor:
+        self,
+        x: torch.tensor
+    ) -> torch.tensor:
         
         """
         Pasa un tensor a traves de la red.
@@ -198,23 +198,23 @@ class LSTM_hidden_extended(LSTM_hidden):
 
 
     def __init__(
-            self,
-            input_size: int,
-            hidden_size: int,
-            hidden_1: int,
-            hidden_2: int,
-            hidden_3: int,
-            hidden_4: int,
-            n_labels: int,
-            p: float,
-            patience: int,
-            epochs: int = 50,
-            valid: bool = False,
-            batch_size: int = 128,
-            lr: float = 0.001,
-            print_every: int = 5,
-            path: str = 'LSTM_hidden.pt'
-        ) -> None:
+        self,
+        input_size: int,
+        hidden_size: int,
+        hidden_1: int,
+        hidden_2: int,
+        hidden_3: int,
+        hidden_4: int,
+        n_labels: int,
+        p: float,
+        patience: int,
+        epochs: int = 50,
+        valid: bool = False,
+        batch_size: int = 128,
+        lr: float = 0.001,
+        print_every: int = 5,
+        path: str = 'LSTM_hidden.pt'
+    ) -> None:
         
         """
         Parameters
@@ -277,12 +277,12 @@ class LSTM_hidden_extended(LSTM_hidden):
     
 
     def trainloop(
-            self,
-            x_train: torch.tensor,
-            y_train: torch.tensor,
-            x_valid: torch.tensor,
-            y_valid: torch.tensor
-        ) -> None:
+        self,
+        x_train: torch.tensor,
+        y_train: torch.tensor,
+        x_valid: torch.tensor,
+        y_valid: torch.tensor
+    ) -> None:
         
         """
         Entrenamiento de la red.
@@ -378,9 +378,9 @@ class LSTM_hidden_extended(LSTM_hidden):
 
 
     def predict(
-            self,
-            x_batch: torch.tensor
-        ) -> List[List[float]]:
+        self,
+        x_batch: torch.tensor
+    ) -> list[list[float]]:
         
         """
         Predice un conjunto de dias.
@@ -403,9 +403,7 @@ class LSTM_hidden_extended(LSTM_hidden):
         return preds
 
 
-    def show_training(
-            self
-        ) -> None:
+    def show_training(self) -> None:
         
         """
         Muestra la evolucion del entrenamiento.
